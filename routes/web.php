@@ -1,6 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    $date = Carbon::now()->toDateTimeString();
+    return 'Olá, bem-vindo ao nosso site! A data e hora atuais são: ' . $date;
 });
+
+Route::get('/ola/{nome}', function ($nome) {
+    return 'Olá, ' . $nome . '! Bem-vindo ao nosso site!';
+});
+
